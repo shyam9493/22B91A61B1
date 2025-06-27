@@ -23,7 +23,7 @@ const Add_shorturl = async(req,res)=>{
     });
     newUrl.save()
         .then(() => {
-            res.status(201).json( {shortLink: shortcode, expiry: expiry} );
+            res.status(201).json( {shortLink: `http://localhost:3000/${shortcode}`, expiry: expiry} );
         })
         .catch((err) => {
             console.error('Error saving URL:', err);
