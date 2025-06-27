@@ -1,4 +1,5 @@
-const {Url} = require('./Models/UrlModel.js');
+const Url = require('../Models/Model.js');
+const { nanoid } = require('nanoid'); 
 
 
 const Add_shorturl = async(req,res)=>{
@@ -6,13 +7,11 @@ const Add_shorturl = async(req,res)=>{
     if (!url || !validity) {
         return res.status(400).json({ error: 'URL and validity are required' });
     }
+    let shortcode;
     if(req.body.shortcode){
         shortcode = req.body.shortcode;
     }else{
         shortcode = nanoid(6);
-    }
-    if(Url.findOne({ shortLink: shortcode })){
-        return res.status(400).json({ error: 'Shortcode already exists' });
     }
 
     const expiry = new Date(Date.now() + validity * 60 * 1000); 

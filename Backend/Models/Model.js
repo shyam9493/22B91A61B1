@@ -1,10 +1,9 @@
 const mongoose = require('mongoose'); 
 
-var Url = new mongoose.Schema({
+const Url = new mongoose.Schema({
     url:{
         type:String,
         required:true,
-        unique:true
     },
     shortLink:{
         type:String,
