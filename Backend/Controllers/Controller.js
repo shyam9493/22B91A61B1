@@ -18,7 +18,7 @@ const Add_shorturl = async(req,res)=>{
 
     const newUrl = new Url({
         url: url,
-        shortLink: shortcode,
+        shortLink: `http://localhost:3000/${shortcode}`,
         expiry: expiry
     });
     newUrl.save()
