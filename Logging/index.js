@@ -1,19 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) =>{
-    const {stack, level, package, message} = req.query;
-    if (!stack || !level || !package || !message) {
-        res.status(400).send('Missing required query parameters: stack, level, package, message');
-        return;
-    }
-    Log(stack, level, package, message);
-    res.send('Log received successfully');
-})
-
-
-
 function Log(stack,level,package,message) {
     const axios = require('axios');
     axios.post('http://20.244.56.144/evaluation/logs', {
@@ -28,7 +12,5 @@ function Log(stack,level,package,message) {
     })
     
 }
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
 
 module.exports = { Log };
