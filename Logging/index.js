@@ -16,7 +16,7 @@ app.get('/', (req, res) =>{
 
 function Log(stack,level,package,message) {
     const axios = require('axios');
-    axios.post('http://20.244.56.144/evaluation,logs', {
+    axios.post('http://20.244.56.144/evaluation/logs', {
         stack: stack,
         level: level,
         package: package,
