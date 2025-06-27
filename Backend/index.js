@@ -6,7 +6,7 @@ const router = require('./Routes/urlRoutes.js');
 
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.json());
 app.use(cors());
@@ -14,15 +14,15 @@ app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/22b91a61b1');
 
-app.use((req, res, next) => {
-    const { stack, level, package, message } = req.query;
-    if (!stack || !level || !package || !message) {
-        res.status(400).send('Missing required query parameters: stack, level, package, message');
-        return;
-    }
-    Log(stack, level, package, message);
-    next();
-});
+// app.use((req, res, next) => {
+//     const { stack, level, package, message } = req.query;
+//     if (!stack || !level || !package || !message) {
+//         res.status(400).send('Missing required query parameters: stack, level, package, message');
+//         return;
+//     }
+//     Log(stack, level, package, message);
+//     next();
+// });
 
 
 
